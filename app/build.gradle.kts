@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.projet_mobile_market"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.projet_mobile_market"
