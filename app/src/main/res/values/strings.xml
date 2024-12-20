@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Projet_Mobile_Market</string>
+    <string name="title_activity_splash">SplashActivity</string>
 </resources>
