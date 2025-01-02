@@ -6,32 +6,39 @@
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_Mobile_Market"
         tools:targetApi="31">
+
+        <!-- Splash Activity -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:label="@string/title_activity_splash"
-            android:theme="@style/Theme.Projet_Mobile_Market" >
+            android:theme="@style/Theme.Projet_Mobile_Market">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Projet_Mobile_Market">
-
         </activity>
+
+        <!-- Group Info Activity -->
+        <activity
+            android:name=".GroupInfosActivity"
+            android:exported="true"
+            android:label="Group Info"
+            android:theme="@style/Theme.Projet_Mobile_Market" />
     </application>
 
 </manifest>

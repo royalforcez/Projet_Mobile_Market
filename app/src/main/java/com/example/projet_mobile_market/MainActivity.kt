@@ -42,9 +42,7 @@ fun MainScreen() {
 
     NavHost(navController = navController, startDestination = "home") {
         composable("home") { HomeScreen(navController) }
-        composable("group_infos") { GroupInfosScreen(navController) }
-        composable("categories") { com.example.projet_mobile_market.CategoriesScreen() }
-
+        composable("group_infos") { GroupInfosScreen(navController) } // Passer navController ici
     }
 }
 
@@ -104,9 +102,9 @@ fun HomeScreen(navController: NavHostController) {
                     }
                 }
 
-
+                // Button "Products" (Pas encore lié à une page)
                 Button(
-                    onClick = { navController.navigate("categories") },
+                    onClick = { /* Navigation vers Products */ },
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .aspectRatio(1f),
