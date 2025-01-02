@@ -1,18 +1,24 @@
 package com.example.projet_mobile_market
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -21,26 +27,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.projet_mobile_market.ui.theme.Projet_Mobile_MarketTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import java.lang.reflect.Modifier
 import java.net.URL
 
-class CategoriesActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Projet_Mobile_MarketTheme {
-                CategoriesScreen()
-            }
-        }
-    }
-}
-
 @Composable
-fun CategoriesScreen(modifier: Modifier = Modifier) {
-    var categories by remember { mutableStateOf(listOf<String>()) }
+fun CategoriesScreen(name: String = "Categories", modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier) {
+    val categories = remember { mutableStateListOf<String>() }
     val scope = rememberCoroutineScope()
 
     // Récupération des données depuis l'API
@@ -48,10 +43,18 @@ fun CategoriesScreen(modifier: Modifier = Modifier) {
         scope.launch(Dispatchers.IO) {
             try {
                 val response = URL("https://api.jsonbin.io/v3/b/6760342bacd3cb34a8ba8657").readText()
-                val json = JSONObject(response)
-                val records = json.getJSONObject("record")
-                val categoryList = records.keys().asSequence().toList()
-                categories = categoryList
+                val jsonArray = JSONObject(response).getJSONArray("record") // Récupère le tableau 'record'
+                val categoryList = mutableListOf<String>()
+
+                // Parcours du tableau pour récupérer les titres des catégories
+                for (i in 0 until jsonArray.length()) {
+                    val category = jsonArray.getJSONObject(i) // Récupère chaque objet dans le tableau
+                    categoryList.add(category.getString("title")) // Ajoute le titre à la liste
+                }
+
+                // Met à jour les catégories avec addAll
+                categories.clear()
+                categories.addAll(categoryList)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -59,16 +62,17 @@ fun CategoriesScreen(modifier: Modifier = Modifier) {
     }
 
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         content = { innerPadding ->
             Column(
-                modifier = Modifier
+                modifier = androidx.compose.ui.Modifier
                     .fillMaxSize()
                     .padding(innerPadding)
+
             ) {
                 // Header personnalisé
                 Box(
-                    modifier = Modifier
+                    modifier = androidx.compose.ui.Modifier
                         .fillMaxWidth()
                         .background(
                             Brush.horizontalGradient(
@@ -89,7 +93,7 @@ fun CategoriesScreen(modifier: Modifier = Modifier) {
 
                 // Liste des catégories
                 LazyColumn(
-                    modifier = Modifier
+                    modifier = androidx.compose.ui.Modifier
                         .fillMaxSize()
                         .padding(16.dp)
                 ) {
@@ -105,7 +109,7 @@ fun CategoriesScreen(modifier: Modifier = Modifier) {
 @Composable
 fun CategoryItem(category: String) {
     Box(
-        modifier = Modifier
+        modifier = androidx.compose.ui.Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
             .background(
@@ -129,7 +133,9 @@ fun CategoryItem(category: String) {
 @Preview(showBackground = true)
 @Composable
 fun CategoriesScreenPreview() {
-    Projet_Mobile_MarketTheme {
-        CategoriesScreen()
-    }
+    CategoriesScreen()
 }
+
+
+
+
