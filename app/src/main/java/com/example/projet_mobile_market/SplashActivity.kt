@@ -35,7 +35,7 @@ class SplashActivity : ComponentActivity() {
             Projet_Mobile_MarketTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting2(
-                        name = "Android",
+
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -44,14 +44,14 @@ class SplashActivity : ComponentActivity() {
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
             startActivity(Intent(this,MainActivity::class.java))
             finish()
-        },1500)
+        },2000)
     }
 }
 
 @Composable
-fun Greeting2(name: String, modifier: Modifier = Modifier) {
+fun Greeting2(modifier: Modifier = Modifier) {
     Column (
-        modifier = modifier.background(Color.White).fillMaxSize(),
+        modifier = Modifier.background(Color.White).fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ){
@@ -70,6 +70,6 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview2() {
     Projet_Mobile_MarketTheme {
-        Greeting2("Android")
+
     }
 }
