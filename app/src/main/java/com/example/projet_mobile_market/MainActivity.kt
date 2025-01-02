@@ -18,6 +18,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.projet_mobile_market.ui.theme.Projet_Mobile_MarketTheme
 
 class MainActivity : ComponentActivity() {
@@ -34,6 +38,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen() {
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = "home") {
+        composable("home") { HomeScreen(navController) }
+        composable("group_infos") { com.example.projet_mobile_market.GroupInfosScreen() } // Cette ligne
+    }
+}
+
+@Composable
+fun HomeScreen(navController: NavHostController) {
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
@@ -61,9 +75,9 @@ fun MainScreen() {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                // Button "Groupe"
+                // Button "Info" -> Navigate to "group_infos"
                 Button(
-                    onClick = { /* Navigation vers Groupe */ },
+                    onClick = { navController.navigate("group_infos") },
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .aspectRatio(1f),
@@ -75,8 +89,8 @@ fun MainScreen() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.group_user), // Remplacez avec l'image réelle
-                            contentDescription = "Icon Groupe",
+                            painter = painterResource(id = R.drawable.group_user),
+                            contentDescription = "Icon Info",
                             modifier = Modifier.size(64.dp)
                         )
                         Spacer(modifier = Modifier.height(8.dp))
@@ -88,9 +102,9 @@ fun MainScreen() {
                     }
                 }
 
-                // Button "Rayons"
+                // Button "Products" (Pas encore lié à une page)
                 Button(
-                    onClick = { /* Navigation vers Rayons */ },
+                    onClick = { /* Navigation vers Products */ },
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .aspectRatio(1f),
@@ -102,8 +116,8 @@ fun MainScreen() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.rayon), // Remplacez avec l'image réelle
-                            contentDescription = "Icon Rayons",
+                            painter = painterResource(id = R.drawable.rayon),
+                            contentDescription = "Icon Products",
                             modifier = Modifier.size(64.dp)
                         )
                         Spacer(modifier = Modifier.height(8.dp))
@@ -118,6 +132,8 @@ fun MainScreen() {
         }
     )
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
