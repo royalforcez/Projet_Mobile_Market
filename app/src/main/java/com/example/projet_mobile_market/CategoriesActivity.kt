@@ -70,7 +70,7 @@ fun CategoriesScreen(name: String = "Categories", modifier: androidx.compose.ui.
                     .padding(innerPadding)
 
             ) {
-
+                // Header personnalisé
                 Box(
                     modifier = androidx.compose.ui.Modifier
                         .fillMaxWidth()
@@ -116,7 +116,7 @@ fun CategoryItem(category: String) {
                 color = Color(0xFFEEEEEE),
                 shape = RoundedCornerShape(8.dp)
             )
-            .clickable {  }
+            .clickable { /* Action lors du clic */ }
             .padding(16.dp)
     ) {
         Text(
