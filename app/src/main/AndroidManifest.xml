@@ -33,12 +33,36 @@
             android:theme="@style/Theme.Projet_Mobile_Market">
         </activity>
 
-        <!-- Group Info Activity -->
+        <!-- Group Infos Activity -->
         <activity
             android:name=".GroupInfosActivity"
             android:exported="true"
             android:label="Group Info"
-            android:theme="@style/Theme.Projet_Mobile_Market" />
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
+
+        <!-- Student Activities -->
+        <activity
+            android:name=".Student1Activity"
+            android:exported="true"
+            android:label="Student 1 Info"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
+
+        <activity
+            android:name=".Student2Activity"
+            android:exported="true"
+            android:label="Student 2 Info"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
+
+        <activity
+            android:name=".Student3Activity"
+            android:exported="true"
+            android:label="Student 3 Info"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
+
     </application>
 
 </manifest>
