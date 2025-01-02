@@ -42,7 +42,7 @@ fun MainScreen() {
 
     NavHost(navController = navController, startDestination = "home") {
         composable("home") { HomeScreen(navController) }
-        composable("group_infos") { com.example.projet_mobile_market.GroupInfosScreen() }
+        composable("group_infos") { GroupInfosScreen(navController) }
         composable("categories") { com.example.projet_mobile_market.CategoriesScreen() }
 
     }
