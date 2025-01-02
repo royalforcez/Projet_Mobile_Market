@@ -49,7 +49,7 @@ fun MainScreen() {
             ) {
                 // Title "Accueil"
                 Text(
-                    text = "Accueil",
+                    text = "Epsi",
                     color = Color.Black,
                     fontSize = 24.sp,
                     modifier = Modifier
@@ -81,7 +81,7 @@ fun MainScreen() {
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "Groupes",
+                            text = "Info",
                             color = Color.Black,
                             fontSize = 16.sp
                         )
@@ -108,7 +108,7 @@ fun MainScreen() {
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "Rayons",
+                            text = "Products",
                             color = Color.Black,
                             fontSize = 16.sp
                         )
