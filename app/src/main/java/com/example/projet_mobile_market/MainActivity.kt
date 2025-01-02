@@ -104,7 +104,7 @@ fun HomeScreen(navController: NavHostController) {
                     }
                 }
 
-                // Button "Products" (Pas encore lié à une page)
+
                 Button(
                     onClick = { navController.navigate("categories") },
                     modifier = Modifier
