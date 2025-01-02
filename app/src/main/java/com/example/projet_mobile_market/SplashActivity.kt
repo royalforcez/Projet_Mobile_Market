@@ -32,7 +32,10 @@ class SplashActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Projet_Mobile_MarketTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
+
                     Greeting2(
 
                         modifier = Modifier.padding(innerPadding)
