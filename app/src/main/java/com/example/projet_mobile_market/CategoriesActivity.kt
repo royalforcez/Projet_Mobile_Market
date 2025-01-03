@@ -96,7 +96,7 @@ fun CategoriesScreen(
                                 0 -> DrinksActivity::class.java
                                 1 -> Student2Activity::class.java
                                 2 -> Student3Activity::class.java
-                                else -> SauceActivity::class.java
+                                else -> CheeseActivity::class.java
                             })
                             context.startActivity(intent)
                         }

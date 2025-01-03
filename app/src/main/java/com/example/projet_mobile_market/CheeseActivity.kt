@@ -10,7 +10,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,17 +25,17 @@ import androidx.compose.foundation.text.ClickableText
 import android.widget.Toast
 
 
-class SauceActivity : ComponentActivity() {
+class CheeseActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SauceScreen()
+            CheeseScreen()
         }
     }
 }
 
 @Composable
-fun SauceScreen() {
+fun CheeseScreen() {
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
@@ -92,7 +91,7 @@ fun SauceScreen() {
 }
 
 @Composable
-fun ClickableLinkSauce(url: String) {
+fun ClickableLinkCheese(url: String) {
     val context = LocalContext.current
 
     ClickableText(

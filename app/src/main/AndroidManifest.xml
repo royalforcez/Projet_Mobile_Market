@@ -63,6 +63,20 @@
             android:theme="@style/Theme.Projet_Mobile_Market">
         </activity>
 
+        <activity
+            android:name=".DrinksActivity"
+            android:exported="true"
+            android:label="Drinks Infos"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
+
+        <activity
+            android:name=".CheeseActivity"
+            android:exported="true"
+            android:label="Cheese Infos"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
+
     </application>
 
 </manifest>
