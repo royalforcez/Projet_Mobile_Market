@@ -51,7 +51,7 @@ fun CheeseScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black)
+            .background(Color.White)
     ) {
         // Header avec un dégradé
         Column(
