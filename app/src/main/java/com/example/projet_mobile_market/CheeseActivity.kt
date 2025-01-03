@@ -84,7 +84,7 @@ fun CheeseScreen() {
                 )
 
                 // Clickable link
-                ClickableLinkSauce(url = "http://www.epsi.fr")
+                ClickableLinkCheese(url = "http://www.epsi.fr")
             }
         }
     )
