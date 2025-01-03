@@ -76,6 +76,18 @@
             android:label="Cheese Infos"
             android:theme="@style/Theme.Projet_Mobile_Market">
         </activity>
+        <activity
+            android:name=".FrozenActivity"
+            android:exported="true"
+            android:label="Frozen Infos"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
+        <activity
+            android:name=".SauceActivity"
+            android:exported="true"
+            android:label="Sauce Infos"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
 
     </application>
 
