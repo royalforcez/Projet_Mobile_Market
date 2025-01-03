@@ -88,6 +88,12 @@
             android:label="Sauce Infos"
             android:theme="@style/Theme.Projet_Mobile_Market">
         </activity>
+        <activity
+            android:name=".BeautyActivity"
+            android:exported="true"
+            android:label="Beauty Infos"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
 
     </application>
 

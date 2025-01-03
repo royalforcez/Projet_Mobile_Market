@@ -1,6 +1,9 @@
 package com.example.projet_mobile_market
 
 import android.content.Intent
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,30 +34,20 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.net.URL
 
-@Composable
-fun CategoriesScreen(
-    name: String = "Rayons",
-    modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier
-) {
-    val context = LocalContext.current
-    val categories = remember { mutableStateListOf<String>() }
-
-    // Récupération des catégories depuis l'API
-    LaunchedEffect(Unit) {
-        withContext(Dispatchers.IO) {
-            try {
-                val response = URL("https://api.jsonbin.io/v3/b/6760342bacd3cb34a8ba8657").readText()
-                val jsonArray = JSONObject(response).getJSONArray("record")
-
-                for (i in 0 until jsonArray.length()) {
-                    val category = jsonArray.getJSONObject(i).getString("title")
-                    categories.add(category)
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+class BeautyActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            BeautyScreen()
         }
     }
+}
+
+@Composable
+fun BeautyScreen(
+    name: String = "Hygiène et Beauté",
+    modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier
+) {
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -87,51 +80,15 @@ fun CategoriesScreen(
                     )
                 }
 
-                // Boutons générés dynamiquement
-                categories.forEachIndexed { index, category ->
-                    CategoryButton(
-                        label = category,
-                        onClick = {
-                            val intent = Intent(context, when (index) {
-                                0 -> DrinksActivity::class.java
-                                1 -> CheeseActivity::class.java
-                                2 -> FrozenActivity::class.java
-                                3 -> SauceActivity::class.java
-                                else -> BeautyActivity::class.java
-                            })
-                            context.startActivity(intent)
-                        }
-                    )
-                }
             }
         }
     )
 }
 
-@Composable
-fun CategoryButton(label: String, onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        modifier = androidx.compose.ui.Modifier
-            .fillMaxWidth(0.8f) // Bouton occupe 80% de la largeur
-            .height(60.dp)
-            .padding(vertical = 8.dp),
-        shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEEEEEE))
-    ) {
-        Text(
-            text = label,
-            style = TextStyle(
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color(0xFF333333) // Gris foncé pour le texte
-            )
-        )
-    }
-}
+
 
 @Preview(showBackground = true)
 @Composable
-fun CategoriesScreenPreview() {
-    CategoriesScreen()
+fun BeautyScreenPreview() {
+    BeautyScreen()
 }
