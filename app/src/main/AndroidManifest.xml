@@ -94,6 +94,12 @@
             android:label="Beauty Infos"
             android:theme="@style/Theme.Projet_Mobile_Market">
         </activity>
+        <activity
+            android:name=".CanActivity"
+            android:exported="true"
+            android:label="Can Infos"
+            android:theme="@style/Theme.Projet_Mobile_Market">
+        </activity>
 
     </application>
 
