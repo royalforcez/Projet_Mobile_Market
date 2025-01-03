@@ -12,8 +12,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -57,23 +59,31 @@ fun HomeScreen(navController: NavHostController) {
         content = { innerPadding ->
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding)
-                    .padding(16.dp),
+                    .fillMaxSize(),
+
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.SpaceAround
             ) {
                 // Title "Accueil"
-                Text(
-                    text = "Epsi",
-                    color = Color.Black,
-                    fontSize = 24.sp,
+                Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(Color.Gray)
-                        .padding(8.dp),
-                    textAlign = TextAlign.Center
-                )
+                        .background(
+                            Brush.horizontalGradient(
+                                colors = listOf(Color(0xFF0c0f76), Color(0xFF0c0f76))
+                            )
+                        )
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "Epsi",
+                        color = Color.White,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center
+                    )
+                }
 
                 Spacer(modifier = Modifier.height(32.dp))
 
@@ -82,13 +92,15 @@ fun HomeScreen(navController: NavHostController) {
                     onClick = { navController.navigate("group_infos") },
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
-                        .aspectRatio(1f),
+                        .aspectRatio(1f)
+                        .padding(16.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color.White),
                     shape = RoundedCornerShape(16.dp),
                     elevation = ButtonDefaults.buttonElevation(4.dp)
                 ) {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally
+
                     ) {
                         Image(
                             painter = painterResource(id = R.drawable.group_user),
@@ -109,7 +121,8 @@ fun HomeScreen(navController: NavHostController) {
                     onClick = { navController.navigate("categories") },
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
-                        .aspectRatio(1f),
+                        .aspectRatio(1f)
+                        .padding(16.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color.White),
                     shape = RoundedCornerShape(16.dp),
                     elevation = ButtonDefaults.buttonElevation(4.dp)
