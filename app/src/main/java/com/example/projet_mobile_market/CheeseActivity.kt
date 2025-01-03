@@ -1,29 +1,38 @@
 package com.example.projet_mobile_market
 
-
-
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.foundation.text.ClickableText
-import android.widget.Toast
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import org.json.JSONObject
+import java.net.URL
 
 class CheeseActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,80 +44,51 @@ class CheeseActivity : ComponentActivity() {
 }
 
 @Composable
-fun CheeseScreen() {
+fun CheeseScreen(
+    name: String = "Fromages",
+    modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier
+) {
+
     Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
+        modifier = modifier.fillMaxSize(),
         content = { innerPadding ->
             Column(
-                modifier = Modifier
+                modifier = androidx.compose.ui.Modifier
                     .fillMaxSize()
-                    .padding(innerPadding)
-                    .padding(16.dp),
+                    .padding(innerPadding),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top
             ) {
-                // Title
-                Text(
-                    text = "Donald Duck",
-                    color = Color.Black,
-                    fontSize = 24.sp,
-                    modifier = Modifier
+                // Header avec un dégradé
+                Column(
+                    modifier = androidx.compose.ui.Modifier
                         .fillMaxWidth()
-                        .background(Color.Gray)
-                        .padding(8.dp),
-                    textAlign = TextAlign.Center
-                )
+                        .background(
+                            Brush.horizontalGradient(
+                                colors = listOf(Color(0xFFFF5722), Color(0xFFFFC107)) // Dégradé orange/jaune
+                            )
+                        )
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = name,
+                        color = Color.White,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center
+                    )
+                }
 
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Image
-                Image(
-                    painter = painterResource(id = R.drawable.donald),
-                    contentDescription = "Donald Duck",
-                    modifier = Modifier
-                        .size(200.dp)
-                        .padding(16.dp)
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Email
-                Text(
-                    text = "Donald-Duck@epsi.com",
-                    color = Color.Black,
-                    fontSize = 16.sp,
-                    modifier = Modifier.padding(8.dp),
-                    textAlign = TextAlign.Center
-                )
-
-                // Clickable link
-                ClickableLinkCheese(url = "https://www.epsi.fr")
             }
         }
     )
 }
 
+
+
+@Preview(showBackground = true)
 @Composable
-fun ClickableLinkCheese(url: String) {
-    val context = LocalContext.current
-
-    ClickableText(
-        text = AnnotatedString(url),
-        onClick = {
-            try {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
-                    addCategory(Intent.CATEGORY_BROWSABLE)
-                }
-                context.startActivity(intent)
-            } catch (e: Exception) {
-                Toast.makeText(context, "Unable to open link", Toast.LENGTH_SHORT).show()
-            }
-        },
-        modifier = Modifier.padding(8.dp),
-        style = androidx.compose.ui.text.TextStyle(color = Color.Blue, fontSize = 16.sp)
-    )
+fun CheeseScreenPreview() {
+    CheeseScreen()
 }
-
-
