@@ -83,7 +83,7 @@ fun Student3Screen() {
                 )
 
                 // Clickable link
-                ClickableLinkStd3(url = "http://www.epsi.fr")
+                ClickableLinkStd3(url = "https://www.epsi.fr")
             }
         }
     )
