@@ -59,7 +59,7 @@ fun BeautyScreen() {
                 .fillMaxWidth()
                 .background(
                     Brush.horizontalGradient(
-                        colors = listOf(Color(0xFFFF5722), Color(0xFFFFC107))
+                        colors = listOf(Color(0xFF0c0f76), Color(0xFFffffff))
                     )
                 )
                 .padding(16.dp),

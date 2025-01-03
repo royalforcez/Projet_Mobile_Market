@@ -65,7 +65,7 @@ fun HomeScreen(navController: NavHostController) {
             ) {
                 // Title "Accueil"
                 Text(
-                    text = "Epsi2",
+                    text = "Epsi",
                     color = Color.Black,
                     fontSize = 24.sp,
                     modifier = Modifier
