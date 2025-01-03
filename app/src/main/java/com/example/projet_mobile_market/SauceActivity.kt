@@ -59,7 +59,7 @@ fun SauceScreen() {
                 .fillMaxWidth()
                 .background(
                     Brush.horizontalGradient(
-                        colors = listOf(Color(0xFF0c0f76), Color(0xFFffffff))
+                        colors = listOf(Color(0xFF0c0f76), Color(0xFF0c0f76))
                     )
                 )
                 .padding(16.dp),

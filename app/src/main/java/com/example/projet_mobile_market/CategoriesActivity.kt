@@ -72,7 +72,7 @@ fun CategoriesScreen(
                         .fillMaxWidth()
                         .background(
                             Brush.horizontalGradient(
-                                colors = listOf(Color(0xFF0c0f76), Color(0xFFffffff)) // Dégradé orange/jaune
+                                colors = listOf(Color(0xFF0c0f76), Color(0xFF0c0f76)) // Dégradé orange/jaune
                             )
                         )
                         .padding(16.dp),
