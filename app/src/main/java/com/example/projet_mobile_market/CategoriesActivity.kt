@@ -93,11 +93,11 @@ fun CategoriesScreen(
                         label = category,
                         onClick = {
                             val intent = Intent(context, when (index) {
-                                0 -> DrinksActivity::class.java
-                                1 -> CheeseActivity::class.java
-                                2 -> FrozenActivity::class.java
-                                3 -> SauceActivity::class.java
-                                else -> BeautyActivity::class.java
+                                0 -> CanActivity::class.java
+                                1 -> FrozenActivity::class.java
+                                2 -> CheeseActivity::class.java
+                                3 -> DrinksActivity::class.java
+                                else -> SauceActivity::class.java
                             })
                             context.startActivity(intent)
                         }
