@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.text.ClickableText
 import android.widget.Toast
+import androidx.compose.ui.text.font.FontWeight
 
 class Student3Activity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +64,8 @@ fun Student3Screen() {
                         text = "Balthazar Picsou",
                         color = Color.White,
                         fontSize = 24.sp,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
+                        fontWeight = FontWeight.Bold
                     )
                 }
 
