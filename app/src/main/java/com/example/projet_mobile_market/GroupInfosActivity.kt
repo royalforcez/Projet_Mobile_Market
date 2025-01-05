@@ -53,7 +53,7 @@ fun GroupInfosScreen() {
                     modifier = Modifier.fillMaxWidth(0.8f).height(60.dp),
                     shape = RoundedCornerShape(8.dp)
                 ) {
-                    Text(text = "Student 1")
+                    Text(text = "Donald Duck")
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -66,7 +66,7 @@ fun GroupInfosScreen() {
                     modifier = Modifier.fillMaxWidth(0.8f).height(60.dp),
                     shape = RoundedCornerShape(8.dp)
                 ) {
-                    Text(text = "Student 2")
+                    Text(text = "Loulou Duck")
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -79,7 +79,7 @@ fun GroupInfosScreen() {
                     modifier = Modifier.fillMaxWidth(0.8f).height(60.dp),
                     shape = RoundedCornerShape(8.dp)
                 ) {
-                    Text(text = "Student 3")
+                    Text(text = "Balthazar Picsou")
                 }
             }
         }
