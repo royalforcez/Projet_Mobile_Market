@@ -62,9 +62,10 @@ fun GroupInfosScreen() {
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .height(60.dp),
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFAAAAAA)) // Gris foncé
                 ) {
-                    Text(text = "Donald Duck")
+                    Text(text = "Donald Duck", color = Color.White, fontSize = 18.sp) // Taille augmentée
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -77,9 +78,10 @@ fun GroupInfosScreen() {
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .height(60.dp),
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFAAAAAA)) // Gris foncé
                 ) {
-                    Text(text = "Loulou Duck")
+                    Text(text = "Loulou Duck", color = Color.White, fontSize = 18.sp) // Taille augmentée
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -92,9 +94,10 @@ fun GroupInfosScreen() {
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
                         .height(60.dp),
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFAAAAAA)) // Gris foncé
                 ) {
-                    Text(text = "Balthazar Picsou")
+                    Text(text = "Balthazar Picsou", color = Color.White, fontSize = 18.sp) // Taille augmentée
                 }
             }
         }
